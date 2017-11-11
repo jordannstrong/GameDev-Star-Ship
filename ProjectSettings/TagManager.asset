@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - Earth Clouds
+  - Boundary
   layers:
   - Default
   - TransparentFX

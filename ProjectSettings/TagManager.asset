@@ -12,6 +12,7 @@ TagManager:
   - Triple Shot
   - Boss
   - Upgrade
+  - PlayerBolt
   layers:
   - Default
   - TransparentFX

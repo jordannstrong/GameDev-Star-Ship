@@ -5,11 +5,14 @@ using System.Collections;
 public class Done_GameController : MonoBehaviour
 {
 	public GameObject[] hazards;
+	public GameObject[] upgrades;
 	public Vector3 spawnValues;
 	public int hazardCount;
+	public int upgradeCount;
 	public float spawnWait;
 	public float startWait;
 	public float waveWait;
+	public float upgradeWait;
 
 	public Text scoreText;
 	public Text restartText;
@@ -28,6 +31,7 @@ public class Done_GameController : MonoBehaviour
 		score = 0;
 		UpdateScore ();
 		StartCoroutine (SpawnWaves ());
+		StartCoroutine (SpawnUpgrades ());
 	}
 
 	void Update () {
@@ -55,6 +59,17 @@ public class Done_GameController : MonoBehaviour
 				restart = true;
 				break;
 			}
+		}
+	}
+
+	IEnumerator SpawnUpgrades () {
+		yield return new WaitForSeconds (startWait);
+		while (true) {
+			GameObject upgrade = upgrades [Random.Range (0, upgrades.Length)];
+			Vector3 spawnPosition = new Vector3 (Random.Range (-spawnValues.x, spawnValues.x), spawnValues.y, spawnValues.z);
+			Quaternion spawnRotation = Quaternion.identity;;
+			Instantiate (upgrade, spawnPosition, spawnRotation);
+			yield return new WaitForSeconds (upgradeWait);
 		}
 	}
 

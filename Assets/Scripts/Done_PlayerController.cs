@@ -20,6 +20,7 @@ public class Done_PlayerController : MonoBehaviour
     public GameObject railGun;
 	public float fireRate;
     public float railChargeRate;
+	public int shotType;
 	 
 	private float nextFire;
 	

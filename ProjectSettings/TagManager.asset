@@ -10,6 +10,7 @@ TagManager:
   - Single Shot
   - Double Shot
   - Triple Shot
+  - Upgrade
   layers:
   - Default
   - TransparentFX

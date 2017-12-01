@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class Done_GameController : MonoBehaviour
@@ -9,44 +10,38 @@ public class Done_GameController : MonoBehaviour
 	public float spawnWait;
 	public float startWait;
 	public float waveWait;
-	
-	public GUIText scoreText;
-	public GUIText restartText;
-	public GUIText gameOverText;
-	
+
+	public Text scoreText;
+	public Text restartText;
+	public Text gameOverText;
+
 	private bool gameOver;
 	private bool restart;
 	private int score;
-	
-	void Start ()
-	{
+
+	void Start () {
 		gameOver = false;
 		restart = false;
+		scoreText.text = "Score: ";
 		restartText.text = "";
 		gameOverText.text = "";
 		score = 0;
 		UpdateScore ();
 		StartCoroutine (SpawnWaves ());
 	}
-	
-	void Update ()
-	{
-		if (restart)
-		{
-			if (Input.GetKeyDown (KeyCode.R))
-			{
+
+	void Update () {
+		if (restart) {
+			if (Input.GetKeyDown (KeyCode.R)) {
 				Application.LoadLevel (Application.loadedLevel);
 			}
 		}
 	}
-	
-	IEnumerator SpawnWaves ()
-	{
+
+	IEnumerator SpawnWaves () {
 		yield return new WaitForSeconds (startWait);
-		while (true)
-		{
-			for (int i = 0; i < hazardCount; i++)
-			{
+		while (true) {
+			for (int i = 0; i < hazardCount; i++) {
 				GameObject hazard = hazards [Random.Range (0, hazards.Length)];
 				Vector3 spawnPosition = new Vector3 (Random.Range (-spawnValues.x, spawnValues.x), spawnValues.y, spawnValues.z);
 				Quaternion spawnRotation = Quaternion.identity;
@@ -54,30 +49,26 @@ public class Done_GameController : MonoBehaviour
 				yield return new WaitForSeconds (spawnWait);
 			}
 			yield return new WaitForSeconds (waveWait);
-			
-			if (gameOver)
-			{
+
+			if (gameOver) {
 				restartText.text = "Press 'R' for Restart";
 				restart = true;
 				break;
 			}
 		}
 	}
-	
-	public void AddScore (int newScoreValue)
-	{
+
+	public void AddScore (int newScoreValue) {
 		score += newScoreValue;
 		UpdateScore ();
 	}
-	
-	void UpdateScore ()
-	{
+
+	void UpdateScore () {
 		scoreText.text = "Score: " + score;
 	}
-	
-	public void GameOver ()
-	{
-		gameOverText.text = "Game Over!";
+
+	public void GameOver ()	{
+		gameOverText.text = "GAME OVER";
 		gameOver = true;
 	}
 }

@@ -7,6 +7,9 @@ TagManager:
   - Enemy
   - Earth Clouds
   - Boundary
+  - Single Shot
+  - Double Shot
+  - Triple Shot
   layers:
   - Default
   - TransparentFX

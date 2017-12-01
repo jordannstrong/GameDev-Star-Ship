@@ -40,7 +40,9 @@ public class Done_DestroyByContact : MonoBehaviour
 		}
 		
 		gameController.AddScore(scoreValue);
-		Destroy (other.gameObject);
+		if (!(other.tag == "RailgunBolt")) {
+			Destroy (other.gameObject);
+		}
 		Destroy (gameObject);
 	}
 }

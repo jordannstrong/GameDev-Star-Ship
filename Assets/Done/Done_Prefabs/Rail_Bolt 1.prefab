@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 136984390327659042}
   - component: {fileID: 114689578693090316}
   m_Layer: 0
-  m_Name: Rail_Bolt invis
+  m_Name: Rail_Bolt 1
   m_TagString: RailgunBolt
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

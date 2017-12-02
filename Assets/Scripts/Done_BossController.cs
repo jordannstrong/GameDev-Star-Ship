@@ -23,12 +23,12 @@ public class Done_BossController : MonoBehaviour
 		if (other.tag == "PlayerBolt") {
 			hitpoints--;
 			Destroy (other.gameObject);
-			if (explosionHit != null) {
-				Instantiate (explosionHit, transform.position, transform.rotation);
-			}
+		} 
+		else if (other.tag == "RailgunBolt") {
+			hitpoints -= 10;
 		}
 
-		if (hitpoints == 0) {
+		if (hitpoints <= 0) {
 			Destroy (gameObject);
 			Destroy (other.gameObject);
 			if (explosionKill != null) {

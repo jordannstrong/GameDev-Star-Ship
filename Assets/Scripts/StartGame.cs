@@ -13,7 +13,7 @@ public class StartGame : MonoBehaviour {
 	{
 		if (Input.anyKey) 
 		{
-			Application.LoadLevel("level 1");
+			Application.LoadLevel(1);
 		}
 	}
 }

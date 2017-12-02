@@ -18,15 +18,14 @@ public class Done_GameController : MonoBehaviour
 	public Text scoreText;
 	public Text restartText;
 	public Text gameOverText;
-	
-	private bool gameOver;
+
 	private bool restart;
+	private bool lockUpdating;
 	private int score;
 	private int waveCount;
 	
 	void Start ()
 	{
-		gameOver = false;
 		restart = false;
 		restartText.text = "";
 		gameOverText.text = "";
@@ -55,6 +54,8 @@ public class Done_GameController : MonoBehaviour
 
 			if (numberOfEnemies == 0) {
 				waveCount++;
+				if (!restart)
+					restartText.text = "Wave " + waveCount;
 				if (waveCount % bossWave == 0) {
 					GameObject boss = bosses [Random.Range (0, bosses.Length)];
 					Vector3 spawnPosition = new Vector3 (Random.Range (-spawnValues.x, spawnValues.x), spawnValues.y, spawnValues.z);
@@ -103,7 +104,6 @@ public class Done_GameController : MonoBehaviour
 	{
 		gameOverText.text = "Game Over!";
 		restartText.text = "Press 'R' for Restart";
-		gameOver = true;
 		restart = true;
 	}
 }

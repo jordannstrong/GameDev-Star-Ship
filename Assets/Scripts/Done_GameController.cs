@@ -55,13 +55,6 @@ public class Done_GameController : MonoBehaviour
 				yield return new WaitForSeconds (spawnWait);
 			}
 			yield return new WaitForSeconds (waveWait);
-			
-			if (gameOver)
-			{
-				restartText.text = "Press 'R' for Restart";
-				restart = true;
-				break;
-			}
 		}
 	}
 	
@@ -79,6 +72,8 @@ public class Done_GameController : MonoBehaviour
 	public void GameOver ()
 	{
 		gameOverText.text = "Game Over!";
+		restartText.text = "Press 'R' for Restart";
 		gameOver = true;
+		restart = true;
 	}
 }

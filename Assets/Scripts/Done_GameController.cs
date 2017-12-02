@@ -71,6 +71,7 @@ public class Done_GameController : MonoBehaviour
 					}
 				}
 			}
+			yield return new WaitForSeconds (1);
 		}
 	}
 

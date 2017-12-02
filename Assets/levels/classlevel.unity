@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -3676,6 +3676,18 @@ Prefab:
       propertyPath: spreadCustomCurve.m_RotationOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114012891736987102, guid: 91c2cb885ee91634a9c85567e00e3649,
+        type: 2}
+      propertyPath: railGunShotVisible
+      value: 
+      objectReference: {fileID: 1137299125318962, guid: a180bca3c61a5f24f9a751616fda2da1,
+        type: 2}
+    - target: {fileID: 114012891736987102, guid: 91c2cb885ee91634a9c85567e00e3649,
+        type: 2}
+      propertyPath: railgunShot
+      value: 
+      objectReference: {fileID: 1137299125318962, guid: ad6e1c9525009c84786bd13ec352a7b6,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 91c2cb885ee91634a9c85567e00e3649, type: 2}
   m_IsPrefabParent: 0
@@ -7237,6 +7249,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4341782836756404, guid: 5bbf1a7c82638914d9ea3a81e171a032, type: 2}
       propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114054882137984120, guid: 5bbf1a7c82638914d9ea3a81e171a032,
+        type: 2}
+      propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

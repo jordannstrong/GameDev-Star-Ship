@@ -40,8 +40,8 @@ GameObject:
   - component: {fileID: 136984390327659042}
   - component: {fileID: 114689578693090316}
   m_Layer: 0
-  m_Name: Rail_Bolt
-  m_TagString: Untagged
+  m_Name: Rail_Bolt invis
+  m_TagString: RailgunBolt
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -79,7 +79,7 @@ MeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1056303110237598}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_MotionVectors: 1
@@ -146,8 +146,8 @@ CapsuleCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1137299125318962}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
+  m_IsTrigger: 1
+  m_Enabled: 1
   m_Radius: 0.03
   m_Height: 0.5
   m_Direction: 2

@@ -16,6 +16,7 @@ public class Done_PlayerController : MonoBehaviour
 
 	public GameObject regularShot;
 	public GameObject railgunShot;
+	public GameObject railGunShotVisible;
 	public Transform shotSpawners;
 	public float fireRate;
     public float railChargeRate;
@@ -65,6 +66,7 @@ public class Done_PlayerController : MonoBehaviour
         if (Input.GetButton("Fire2") && Time.time > nextRailFire) {
 			nextRailFire = Time.time + railChargeRate;
 			Instantiate(railgunShot, rail_single_spawner.position, rail_single_spawner.rotation);
+			Instantiate(railGunShotVisible, rail_single_spawner.position, rail_single_spawner.rotation);
 			GetComponent<AudioSource>().Play();
         }
     }

@@ -40,10 +40,11 @@ public class Done_DestroyByContact : MonoBehaviour
 		}
 		
 		gameController.AddScore(scoreValue);
-        if (!(other.tag == "RailgunBolt"))
-        {
-            Destroy(other.gameObject);
-        }
-        Destroy (gameObject);
+
+		Destroy (other.gameObject);
+		if(!(gameObject.tag == "Boss"))
+			{
+			Destroy (gameObject);
+			}
 	}
 }

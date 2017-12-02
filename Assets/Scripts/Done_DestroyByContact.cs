@@ -43,7 +43,7 @@ public class Done_DestroyByContact : MonoBehaviour
         if (!(other.tag == "RailgunBolt"))
         {
             Destroy(other.gameObject);
-                  }
+        }
         Destroy (gameObject);
 	}
 }

@@ -51,7 +51,7 @@ public class Done_GameController : MonoBehaviour
 	IEnumerator SpawnWaves () {
 		yield return new WaitForSeconds (startWait);
 		while (true) {
-			int numberOfEnemies = GameObject.FindGameObjectsWithTag ("Enemy").Length;
+			int numberOfEnemies = GameObject.FindGameObjectsWithTag ("Enemy").Length + GameObject.FindGameObjectsWithTag ("Boss").Length;
 
 			if (numberOfEnemies == 0) {
 				waveCount++;

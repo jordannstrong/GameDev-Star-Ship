@@ -21,21 +21,15 @@ public class Done_PlayerController : MonoBehaviour
     public float railChargeRate;
 	public int shotType;
 
-	private float nextRegularFire;
-	private float nextRailFire;
-
+	private float nextRegularFire = 0.0f;
+	private float nextRailFire = 0.0f;
 	private Transform reg_single_spawner;
 	private Transform rail_single_spawner;
-	private List<Transform> reg_double_spawners;
-	private List<Transform> reg_triple_spawners;
+	private List<Transform> reg_double_spawners = new List<Transform> ();
+	private List<Transform> reg_triple_spawners = new List<Transform> ();
 
 
 	void Start () {
-		reg_double_spawners = new List<Transform> ();
-		reg_triple_spawners = new List<Transform> ();
-		nextRegularFire = 0;
-		nextRailFire = 0;
-
 		for (int spawnerIndex = 0; spawnerIndex < shotSpawners.childCount; spawnerIndex++) {
 			Transform spawner = shotSpawners.GetChild(spawnerIndex);
 			if (spawner.tag == "Single Shot")
@@ -54,24 +48,24 @@ public class Done_PlayerController : MonoBehaviour
 			nextRegularFire = Time.time + fireRate;
 
 			switch (shotType) {
-			case 3: 
+			case 1: 
 				Instantiate (regularShot, reg_single_spawner.position, reg_single_spawner.rotation);
 				break;
 			case 2:
 				foreach (Transform spawner in reg_double_spawners)
 					Instantiate (regularShot, spawner.position, spawner.rotation);
 				break;
-			case 1:
+			case 3:
 				foreach (Transform spawner in reg_triple_spawners)
 					Instantiate (regularShot, spawner.position, spawner.rotation);
 				break;
 			}
-            GetComponent<AudioSource>().Play ();
+			GetComponent<AudioSource>().Play ();
 		}
         if (Input.GetButton("Fire2") && Time.time > nextRailFire) {
 			nextRailFire = Time.time + railChargeRate;
 			Instantiate(railgunShot, rail_single_spawner.position, rail_single_spawner.rotation);
-            GetComponent<AudioSource>().Play();
+			GetComponent<AudioSource>().Play();
         }
     }
 

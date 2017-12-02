@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -182,11 +182,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 126629421}
---- !u!4 &233583389 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 4710957898267288, guid: 91c2cb885ee91634a9c85567e00e3649,
-    type: 2}
-  m_PrefabInternal: {fileID: 554071395}
 --- !u!1 &335733390
 GameObject:
   m_ObjectHideFlags: 0
@@ -220,11 +215,19 @@ MonoBehaviour:
   - {fileID: 100000, guid: 7d5f7699d6d1d48e485ac71126e12061, type: 2}
   - {fileID: 100002, guid: 9143e2b62ad50488482f9b73672fc331, type: 2}
   - {fileID: 100002, guid: 834bfaee90a9d4e04b1e8c1ca22cc88e, type: 2}
+  bosses:
+  - {fileID: 1183223891469318, guid: 5bbf1a7c82638914d9ea3a81e171a032, type: 2}
+  upgrades:
+  - {fileID: 1672468142831790, guid: 8c74d2f8f17fa2f44aed404f9f6d9578, type: 2}
+  - {fileID: 1858226455532610, guid: 0ea8ecb50bf1efd4a94c4af0674b0bf4, type: 2}
+  - {fileID: 1915174431702670, guid: 930d73c5db70a19448cadbf4457f7456, type: 2}
   spawnValues: {x: 6, y: 0, z: 10}
   hazardCount: 10
   spawnWait: 0.75
   startWait: 1
   waveWait: 4
+  bossWave: 5
+  upgradeWait: 10
   scoreText: {fileID: 126629423}
   restartText: {fileID: 1435260404}
   gameOverText: {fileID: 1518160073}
@@ -3668,21 +3671,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 114012891736987102, guid: 91c2cb885ee91634a9c85567e00e3649,
+    - target: {fileID: 82075090485969056, guid: 91c2cb885ee91634a9c85567e00e3649,
         type: 2}
-      propertyPath: railgunShot
-      value: 
-      objectReference: {fileID: 233583389}
-    - target: {fileID: 114012891736987102, guid: 91c2cb885ee91634a9c85567e00e3649,
-        type: 2}
-      propertyPath: railGun
-      value: 
-      objectReference: {fileID: 1137299125318962, guid: a180bca3c61a5f24f9a751616fda2da1,
-        type: 2}
-    - target: {fileID: 114012891736987102, guid: 91c2cb885ee91634a9c85567e00e3649,
-        type: 2}
-      propertyPath: railChargeRate
-      value: 2
+      propertyPath: spreadCustomCurve.m_RotationOrder
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 91c2cb885ee91634a9c85567e00e3649, type: 2}

@@ -26,7 +26,7 @@ GameObject:
   - component: {fileID: 54749810126006386}
   - component: {fileID: 114510519872838364}
   m_Layer: 0
-  m_Name: Default Icon
+  m_Name: Single Icon
   m_TagString: Upgrade
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -39,7 +39,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1672468142831790}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 149.94545, y: 335.059, z: 100.022804}
+  m_LocalPosition: {x: 0.57750714, y: -3.243328, z: -39.929554}
   m_LocalScale: {x: 0.1, y: 1, z: 0.1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -124,7 +124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71ca872f8dcc28a4eabafebfeedecdb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  upgradeType: 0
+  upgradeType: 1
 --- !u!114 &114514789064652526
 MonoBehaviour:
   m_ObjectHideFlags: 1

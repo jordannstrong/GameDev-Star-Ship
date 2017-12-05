@@ -3,11 +3,6 @@ using UnityEngine;
 
 public class Done_UpgradebyContact : MonoBehaviour {
 	public int upgradeType;
-	private GameObject player;
-
-	void Start () {
-		player = GameObject.FindGameObjectWithTag ("Player");
-	}
 
 	void OnTriggerEnter (Collider other) {
 		if (other.tag == "Player") {

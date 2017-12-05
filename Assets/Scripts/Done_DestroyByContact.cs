@@ -23,7 +23,7 @@ public class Done_DestroyByContact : MonoBehaviour
 
 	void OnTriggerEnter (Collider other)
 	{
-		if (other.tag == "Boundary" || other.tag == "Enemy")
+		if (other.tag == "Boundary" || other.tag == "Enemy" || other.tag == "Upgrade" || other.tag == "Boss")
 		{
 			return;
 		}
@@ -40,10 +40,11 @@ public class Done_DestroyByContact : MonoBehaviour
 		}
 		
 		gameController.AddScore(scoreValue);
-        if (!(other.tag == "RailgunBolt"))
-        {
-            Destroy(other.gameObject);
-                  }
-        Destroy (gameObject);
+
+		Destroy (other.gameObject);
+		if(!(gameObject.tag == "Boss"))
+			{
+			Destroy (gameObject);
+			}
 	}
 }

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 [System.Serializable]
 public class Done_Boundary 
@@ -13,30 +14,60 @@ public class Done_PlayerController : MonoBehaviour
 	public float tilt;
 	public Done_Boundary boundary;
 
-	public GameObject shot;
-	public Transform shotSpawn01;
-    public Transform shotSpawn02;
-    public Transform railgunShot;
-    public GameObject railGun;
+	public GameObject regularShot;
+	public GameObject railgunShot;
+	public GameObject railGunShotVisible;
+	public Transform shotSpawners;
 	public float fireRate;
     public float railChargeRate;
-	 
-	private float nextFire;
-	
-	void Update ()
-	{
-		if (Input.GetButton("Fire1") && Time.time > nextFire) 
-		{
-			nextFire = Time.time + fireRate;
-			Instantiate(shot, shotSpawn01.position, shotSpawn01.rotation);
-            Instantiate(shot, shotSpawn02.position, shotSpawn02.rotation);
-            GetComponent<AudioSource>().Play ();
+	public int shotType;
+
+	private float nextRegularFire = 0.0f;
+	private float nextRailFire = 0.0f;
+	private Transform reg_single_spawner;
+	private Transform rail_single_spawner;
+	private List<Transform> reg_double_spawners = new List<Transform> ();
+	private List<Transform> reg_triple_spawners = new List<Transform> ();
+
+
+	void Start () {
+		for (int spawnerIndex = 0; spawnerIndex < shotSpawners.childCount; spawnerIndex++) {
+			Transform spawner = shotSpawners.GetChild(spawnerIndex);
+			if (spawner.tag == "Single Shot")
+				reg_single_spawner = spawner;
+			else if (spawner.tag == "Double Shot")
+				reg_double_spawners.Add(spawner);
+			else if (spawner.tag == "Triple Shot")
+				reg_triple_spawners.Add(spawner);
+			else if (spawner.tag == "Railgun Shot")
+				rail_single_spawner = spawner;
 		}
-        if (Input.GetButton("Fire2") && Time.time > nextFire)
-        {
-            nextFire = Time.time + railChargeRate;
-            Instantiate(railGun, railgunShot.position, railgunShot.rotation);
-            GetComponent<AudioSource>().Play();
+	}
+
+	void Update () {
+		if (Input.GetButton("Fire1") && Time.time > nextRegularFire) {
+			nextRegularFire = Time.time + fireRate;
+
+			switch (shotType) {
+			case 1: 
+				Instantiate (regularShot, reg_single_spawner.position, reg_single_spawner.rotation);
+				break;
+			case 2:
+				foreach (Transform spawner in reg_double_spawners)
+					Instantiate (regularShot, spawner.position, spawner.rotation);
+				break;
+			case 3:
+				foreach (Transform spawner in reg_triple_spawners)
+					Instantiate (regularShot, spawner.position, spawner.rotation);
+				break;
+			}
+			GetComponent<AudioSource>().Play ();
+		}
+        if (Input.GetButton("Fire2") && Time.time > nextRailFire) {
+			nextRailFire = Time.time + railChargeRate;
+			Instantiate(railgunShot, rail_single_spawner.position, rail_single_spawner.rotation);
+			Instantiate(railGunShotVisible, rail_single_spawner.position, rail_single_spawner.rotation);
+			GetComponent<AudioSource>().Play();
         }
     }
 

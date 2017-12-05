@@ -10,6 +10,12 @@ TagManager:
   - RailgunBolt
   - PlayerBolt
   - Ally
+  - Upgrade
+  - Boss
+  - Single Shot
+  - Double Shot
+  - Triple Shot
+  - Railgun Shot
   layers:
   - Default
   - TransparentFX
@@ -19,8 +25,8 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
+  - Enemies
+  - Bullets
   - 
   - 
   - 
